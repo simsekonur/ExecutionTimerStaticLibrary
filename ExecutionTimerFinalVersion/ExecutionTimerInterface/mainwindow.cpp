@@ -35,10 +35,11 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-
+myExecResult results;
+int connfd;
 void MainWindow::on_pushButton_clicked()
 {
-        int sockfd, connfd, len;
+        int sockfd, len;
         struct sockaddr_in servaddr, cli;
 
         // socket create and verification
@@ -86,27 +87,6 @@ void MainWindow::on_pushButton_clicked()
 
 
 
-        //As an alternative,I will try object version
-	int receive;
-        int i = 0;
-        QString space{": "};
-        QString p{") "};
-	myExecResult results;
-        while ((receive = recv(connfd,(void *)&results,sizeof(results),0) )>0 ){
-
-            //ui->tableWidget->insertRow(ui->tableWidget->rowCount());
-            ui->tableWidget->insertRow(ui->tableWidget->rowCount());
-            ui->tableWidget->setItem(ui->tableWidget->rowCount()-1,0,new QTableWidgetItem(results.funcName));
-            ui->tableWidget->setItem(ui->tableWidget->rowCount()-1,1,new QTableWidgetItem(QString::number(results.difference)));
-
-           // ui->listWidget->addItem(QString::number(i+1)+p+ results.funcName +space +QString::number(results.difference));
-            std::cout << results.funcName << " : " << results.difference << std::endl;
-            i++;
-
-        }
-
-
-        sleep(3);
 
 
 
@@ -115,4 +95,29 @@ void MainWindow::on_pushButton_clicked()
 void MainWindow::on_pushButton_2_clicked()
 {
     ui->tableWidget->clear();
+}
+
+void MainWindow::on_pushButton_3_clicked()
+{
+    //As an alternative,I will try object version
+    int receive;
+
+
+
+    while ((receive = recv(connfd,(void *)&results,sizeof(results),0) )>0 ){
+
+        //ui->tableWidget->insertRow(ui->tableWidget->rowCount());
+        ui->tableWidget->insertRow(ui->tableWidget->rowCount());
+        ui->tableWidget->setItem(ui->tableWidget->rowCount()-1,0,new QTableWidgetItem(results.funcName));
+        ui->tableWidget->setItem(ui->tableWidget->rowCount()-1,1,new QTableWidgetItem(QString::number(results.difference)));
+
+       // ui->listWidget->addItem(QString::number(i+1)+p+ results.funcName +space +QString::number(results.difference));
+        std::cout << results.funcName << " : " << results.difference << std::endl;
+
+
+    }
+
+
+    sleep(3);
+
 }

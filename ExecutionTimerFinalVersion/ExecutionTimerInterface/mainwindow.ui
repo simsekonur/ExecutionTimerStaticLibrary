@@ -17,7 +17,7 @@
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>230</x>
+      <x>200</x>
       <y>40</y>
       <width>89</width>
       <height>25</height>
@@ -28,7 +28,7 @@
 font: 75 11pt &quot;Ubuntu Mono&quot;;</string>
     </property>
     <property name="text">
-     <string>RECEIVE</string>
+     <string>LISTEN</string>
     </property>
    </widget>
    <widget class="QTableWidget" name="tableWidget">
@@ -89,6 +89,23 @@ font: 75 11pt &quot;Ubuntu Mono&quot;;</string>
     </property>
     <property name="text">
      <string>CLEAR</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_3">
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>40</y>
+      <width>89</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(252, 233, 79);
+font: 75 11pt &quot;Ubuntu Mono&quot;;</string>
+    </property>
+    <property name="text">
+     <string>SHOW</string>
     </property>
    </widget>
   </widget>
