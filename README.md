@@ -1,1 +1,4 @@
 # ExecutionTimerStaticLibrary
+
+
+![Screenshot](beforeProgramRuns.png)
